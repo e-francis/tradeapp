@@ -24,7 +24,8 @@ const FooterContainer = styled.div`
   border-top: 0.6px solid rgb(0, 0, 0, 0.3);
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
-    padding: 2em 12px;
+    padding: 0px 30px;
+    
   }
 `;
 
@@ -32,6 +33,24 @@ const TopContainer = styled.div`
   width: 100%;
   display: flex;
   margin-bottom: 1em;
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
+  }
+`;
+
+const LogoContainer = styled.div`
+  display: flex;
+  font-size: 10px;
+  align-items: flex-start;
+  flex-direction: column;
+  line-height: 1.3;
+  text-align: start;
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    align-items: left;
+    font-size: 10px;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -41,6 +60,10 @@ const ContentContainer = styled.div`
 
   &:not(:last-of-type) {
     margin-right: 3%;
+  }
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
   }
 `;
 
@@ -59,10 +82,18 @@ const BottomContainer = styled.div`
 
 const RightBottomContainer = styled.div`
   display: flex;
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
+  }
 `;
 
 const LeftBottomContainer = styled.div`
   display: flex;
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h2`
@@ -74,6 +105,9 @@ const Title = styled.h2`
    &:hover {
     color: #485412;
 
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
+  }
 `;
 
 const FLink = styled.a`
@@ -86,21 +120,28 @@ const FLink = styled.a`
   &:not(:last-of-type) {
     margin-bottom: 8px;
   }
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
+  }
 `;
 
 const SloganText = styled.h3`
   margin: 0;
   line-height: 1.5;
   color: #fff;
-  font-weight: 15;
+  font-weight: bold;
   font-size: 15px;
+  text-align: left;
+  padding-top: 1em;
 
   &:hover {
     color: #0D2D19;
   }
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
-    font-size: 24px;
+    font-size: 11px;
+    font-weight: bold;
   }
 `;
 
@@ -112,13 +153,14 @@ const PrivacyText = styled.h6`
   display: flex;
   margin-top: 5px;
   align-items: center;
+  text-align: left;
 
   &:hover {
     color: #0D2D19;
   }
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
-    font-size: 8px;
+    font-size: 10px;
   }
 `;
 
@@ -136,7 +178,7 @@ const PrivacyTextQ = styled.h6`
   }
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
-    font-size: 8px;
+    font-size: 10px;
   }
 `;
 
@@ -148,13 +190,14 @@ const PrivacyTextQ1 = styled.h6`
   display: flex;
   margin-top: 5px;
   align-items: center;
+  
 
   &:hover {
     color: #0D2D19;
   }
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
-    font-size: 8px;
+    font-size: 10px;
   }
 `;
 
@@ -168,6 +211,10 @@ const AnchorLink = styled(Link)`
 
   &:hover {
     color: #0D2D19;
+  }
+
+  @media screen and (max-width: ${deviceSize.mobile}px) {
+    padding: 0;
   }
 `;
 
@@ -187,7 +234,7 @@ const SocialIcon = styled.div`
   }
 
   @media screen and (max-width: ${deviceSize.mobile}px) {
-    font-size: 17px;
+    font-size: 15px;
   }
 `;
 
@@ -198,27 +245,23 @@ export function Footer(props) {
     <FooterContainer>
       <TopContainer>
         <ContentContainer>
+        <LogoContainer>
           <BrandLogo
-              logoSize={isMobile ? 40 : 65}
-              textSize={isMobile ? 35 : 55}
-              
-            />
-            <Marginer direction="vertical" margin={8} />
+              logoSize={isMobile ? 33 : 40}
+              textSize={isMobile ? 28 : 35}
+              />
+            
+            </LogoContainer>
             <SloganText>
           Trading and investing in digital options involves significant level of risk and is not suitable for all clients.
             Please make sure you carefully consider your investment 
-            </SloganText>
-            <SloganText>your investment objectives, level of experience and risk appetite before buying or selling any digital option. 
-            Buying or selling digital options entails financial risks</SloganText>
-            <SloganText>
+            your investment objectives, level of experience and risk appetite before buying or selling any digital option. 
+            Buying or selling digital options entails financial risks
              and could result in a partial or complete loss of your funds, therefore, you should
               not invest funds you cannot afford to lose. You should  be aware of and fully
-            </SloganText>
-            <SloganText>
             understand all the risks associated with trading and investing in digital options,
              and seek advice from an independent financial advisor if you have any doubts.
             </SloganText>
-            <Marginer direction="vertical" margin={8} />
             <Marginer direction="vertical" margin={8} />
           </ContentContainer>
         
@@ -236,8 +279,8 @@ export function Footer(props) {
           <AnchorLink to="/customer/access/signup">
           <PrivacyTextQ>FAQ</PrivacyTextQ>
           </AnchorLink>
-          <AnchorLink to="/customer/access/signup">
-          <PrivacyTextQ1>Account Types</PrivacyTextQ1>
+          <AnchorLink to="/accountTypes">
+          <PrivacyTextQ1>AccountTypes</PrivacyTextQ1>
           </AnchorLink>
         </ContentContainer>
 
@@ -253,11 +296,12 @@ export function Footer(props) {
           <PrivacyText>Mon - Sun : 09:00 - 18:00</PrivacyText>
           </SocialIcon>
         </ContentContainer>
-      </TopContainer>
 
+        
+      </TopContainer>
       <BottomContainer>
         <LeftBottomContainer>
-          < hideLogo color="#F3F3F3" textSize={isMobile ? 20 : 25} />
+          {< hideLogo color="#F3F3F3" textSize={isMobile ? 20 : 25} />}
           <PrivacyText>bitchangetrading&#169; All Rights Reserved. 2021</PrivacyText>
         </LeftBottomContainer>
         <RightBottomContainer>

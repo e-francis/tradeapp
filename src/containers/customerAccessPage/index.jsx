@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { AccountBox } from "../../components/accountBox";
 import { Footer } from "../../components/footer";
-import { Navbar } from "../../components/navbar";
+import  Navbar  from "../../components/navbar/navbar";
 import {
   InnerPageContainer,
   PageContainer,
@@ -18,12 +18,14 @@ export function CustomerAccessPage(props) {
   const { action } = useParams();
 
   return (
+    <>
+     <Navbar />
     <PageContainer>
-      <Navbar />
       <StyledInnerContainer>
         <AccountBox initialActive={action} />
       </StyledInnerContainer>
       <Footer />
     </PageContainer>
+    </>
   );
 }

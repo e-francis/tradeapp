@@ -46,17 +46,7 @@ const WarningText = styled.h3`
   font-weight: 500;
 `;
 
-const ViewMoreButton = styled(Button)`
-  background-color: #f2f2f2;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
-  color: #959595;
-  font-size: 14px;
 
-  &:hover {
-    background-color: #f2f2f2;
-    filter: contrast(0.8);
-  }
-`;
 
 const wait = (num) => new Promise((rs) => setTimeout(rs, num));
 

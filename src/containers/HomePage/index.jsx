@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Footer } from "../../components/footer";
 import { Marginer } from "../../components/marginer";
-import { Navbar } from "../../components/navbar";
+import  Navbar  from "../../components/navbar/navbar";
 import {
   InnerPageContainer,
   PageContainer,
@@ -13,7 +13,7 @@ import { Services } from "./services";
 import { TopSection } from "./topSection";
 
 const ContentContainer = styled.div`
-  width: 100%;
+  width: '100%';
   max-width: ${deviceSize.laptop}px;
   display: flex;
   flex-direction: column;
@@ -28,8 +28,9 @@ const ContentContainer = styled.div`
 export function HomePage(props) {
   return (
     <PageContainer>
-      <TopSection>
-        <Navbar useTransparent />
+    
+       <TopSection>
+        <Navbar />
       </TopSection>
       <InnerPageContainer>
         <Marginer direction="vertical" margin="2em" />
@@ -41,6 +42,7 @@ export function HomePage(props) {
         <Marginer direction="vertical" margin="5em" />
       </InnerPageContainer>
       <Footer />
+      <accoutTypes /> 
     </PageContainer>
   );
 }

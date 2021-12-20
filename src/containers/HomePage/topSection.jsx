@@ -1,20 +1,15 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
-import Carousel from 'react-elastic-carousel';
 import { BrandLogo } from "../../components/brandLogo";
 import { Button } from "../../components/button";
 import { Marginer } from "../../components/marginer";
 import { deviceSize } from "../../components/responsive";
 import { Link } from "react-router-dom"; 
-import { motion } from "framer-motion";
-
-//import { Card } from "../../components/Slider/Card";
-//import { CardStyle } from "../../components/Slider/Card.css";
-
+import { Carousel } from 'antd';
 
 import TopSectionBackgroundImg from "../../images/homepage.jpg";
-import TheBestSpecialistsImg from "../../images/logot.png";
+import TheBestSpecialistsImg from "../../images/logot.jpg";
 
 const TopSectionContainer = styled.div`
   width: 100%;
@@ -68,6 +63,16 @@ const LogoContainer = styled.div`
   }
 `;
 
+const carouselStyle = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+}
+;
+
+
 const SloganText = styled.h3`
   margin: 0;
   line-height: 1.5;
@@ -92,11 +97,15 @@ export function TopSection(props) {
       <BackgroundFilter>
         {children}
         <TopSectionInnerContainer>
-          <motion.LogoContainer animate={{x:100, y:-100, marginRight:200, marginTop:200, marginLeft:200}}>
+        <Carousel autoplay>
+    
+          <LogoContainer>
             <BrandLogo
               logoSize={isMobile ? 40 : 65}
               textSize={isMobile ? 35 : 55}
             />
+          
+  
             <Marginer direction="vertical" margin={8} />
             <SloganText>MARKET MAY CHANGE,</SloganText>
             <SloganText>GOOD INVESTMENT ADVICE</SloganText>
@@ -105,16 +114,11 @@ export function TopSection(props) {
             <Link to="/customer/access/signup">
             <Button>Join Now</Button>
             </Link>
-          </motion.LogoContainer>
-          {!isMobile && (
-            <CarouselImage>
-              <Carousel>
-              
-              </Carousel>
-            </CarouselImage>
-          )}
+          </LogoContainer>
+          </Carousel>
         </TopSectionInnerContainer>
       </BackgroundFilter>
+
     </TopSectionContainer>
   );
 }

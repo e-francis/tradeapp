@@ -43,7 +43,7 @@ const SloganContainer = styled.div`
 
 const Slogan = styled.h2`
   margin: 0;
-  font-size: 24px;
+  font-size: 20px;
   color: #fff;
   font-weight: 700;
   line-height: 1.3;
