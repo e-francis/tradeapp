@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import LogoImg from "../../images/logos/logo.jpg";
+import LogoImg from "../../images/logos/logo.png";
 import { Link } from "react-router-dom";
 
 const BrandLogoContainer = styled.div`
