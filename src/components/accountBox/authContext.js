@@ -24,7 +24,7 @@ export default function authProvider({ children }) {
     
 
     const value = {
-        currentUser
+        currentUser,
         Signup
     }
 

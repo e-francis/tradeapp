@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Marginer } from "../marginer";
-
+import { useAuth } from "./authContext";
 import {
   BoldLink,
   BoxContainer,
@@ -13,6 +13,13 @@ import { AccountContext } from "./context";
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
+  const { SignupForm } = useAuth()
+
+  function handleSubmitButton(e) {
+    e.preventDefault()
+
+    
+  }
 
   return (
     <BoxContainer>
