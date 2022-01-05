@@ -1,12 +1,10 @@
-import { ThemeProvider } from "@material-ui/styles";
 import React from "react";
-import ReactDOM from "react-dom";
+import { ThemeProvider } from "@material-ui/styles";
 import { navbar } from "../../components/userDashboard";
 import { leftbar } from "../../components/userDashboard";
 import { theme } from "../../components/userDashboard";
 import { feed } from "../../components/userDashboard";
 import { Grid, makeStyles } from "@material-ui/core";
-
 
 const useStyles = makeStyles((theme) => ({
   right: {
@@ -16,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const App = () => {
+const dashboard = () => {
   const classes = useStyles();
   return (
     <div>
