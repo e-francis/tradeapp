@@ -1,5 +1,7 @@
 import firebase from "firebase/app"
 import "firebase/auth"
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 const app = firebase.initializeApp({
   apiKey: process.env.BITCHANGETRADING_APP_API_KEY,
@@ -12,5 +14,7 @@ const app = firebase.initializeApp({
   measurementId: process.env.BITCHANGETRADING_APP_MEASUREMENT_ID
 })
 
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 export const auth = app.auth()
 export default app
