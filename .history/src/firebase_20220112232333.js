@@ -15,10 +15,9 @@ const app = firebase.initializeApp({
     measurementId: process.env.BITCHANGETRADING_APP_MEASUREMENT_ID
 })
 
-export const app = initializeApp(firebaseConfig);
-const db = firebase.firestore();
-const analytics = getAnalytics(app);
-export const auth = firebase.auth();
+const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-
-export default firebase
+const db = app.firestore();
+const analytics = getAnalytics(app);
+export const auth = app.auth();
+export default app

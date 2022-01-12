@@ -18,7 +18,7 @@ export function SignupForm(props) {
   function handleSubmitButton(e) {
     e.preventDefault()
 
-    SignupForm("FullName".current.value, "Email".current.value, "Password".current.value, "Confirm Password".current.value)
+    SignupForm(FullName.current.value, Email.current.value, Password.current.value, "Confirm Password".current.value)
 
     
   }
