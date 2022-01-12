@@ -30,8 +30,8 @@ export default function authProvider({ children }) {
     }
 
     return (
-        <authContext.Provider value={value}> 
+        <useAuthContext.Provider value={value}> 
         {children}
-        </authContext.Provider>
+        </useAuthContext.Provider>
     )
 }

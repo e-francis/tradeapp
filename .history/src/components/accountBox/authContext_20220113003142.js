@@ -29,9 +29,5 @@ export default function authProvider({ children }) {
         Signup
     }
 
-    return (
-        <authContext.Provider value={value}> 
-        {children}
-        </authContext.Provider>
-    )
-}
+    return ( < AuthContext.Provider value = { value } > { children } < /AuthContext.Provider >)
+    }
