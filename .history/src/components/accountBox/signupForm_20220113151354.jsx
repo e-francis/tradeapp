@@ -10,11 +10,6 @@ import {
   SubmitButton,
 } from "./common";
 import { AccountContext } from "./context";
-import * as yup from "yup";
-
-const validationSchema = yup.object({
-  firstName: yup.string().min(3, "Please enter correctly").required
-})
 
 export function SignupForm(_props) {
   const { switchToSignin } = useContext(AccountContext);

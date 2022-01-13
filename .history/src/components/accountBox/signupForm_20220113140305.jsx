@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useRef, useContext, useState } from "react";
 import { useFormik } from "formik";
 import { Marginer } from "../marginer";
 import {
@@ -10,15 +10,9 @@ import {
   SubmitButton,
 } from "./common";
 import { AccountContext } from "./context";
-import * as yup from "yup";
 
-const validationSchema = yup.object({
-  firstName: yup.string().min(3, "Please enter correctly").required
-})
-
-export function SignupForm(_props) {
+export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
-  
 
   const onSubmit = (values) => {
     alert(JSON.stringify(values));
@@ -33,6 +27,8 @@ export function SignupForm(_props) {
 }, 
     validateOnBlur: true,
     onSubmit,
+
+
 });
   
 
@@ -47,12 +43,12 @@ export function SignupForm(_props) {
         <Input name="confirmPassword" placeholder="Confirm Password" value={formik.values.confirmPassword} onChange={formik.handleChange}/>
       </FormContainer>
       <Marginer direction="vertical" margin="1em" />
-      <SubmitButton type="submit">SignUp</SubmitButton>
+      <SubmitButton type="submit">Signup</SubmitButton>
       <Marginer direction="vertical" margin={5} />
       <MutedLink href="#">
         Already have an account?
         <BoldLink href="#" onClick={switchToSignin}>
-          sign in
+          Signin
         </BoldLink>
       </MutedLink>
     </BoxContainer>

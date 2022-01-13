@@ -42,7 +42,7 @@ export function HomePage(props) {
         <Marginer direction="vertical" margin="5em" />
       </InnerPageContainer>
       <Footer />
-      <accountTypes /> 
+      <accoutTypes /> 
     </PageContainer>
   );
 }

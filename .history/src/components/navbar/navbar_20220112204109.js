@@ -86,7 +86,7 @@ window.addEventListener('resize', showButton);
               </li>
               <li className='nav-item'>
                 <Link
-                  to='/customer/access/signup'
+                  to='/customer/access/signin'
                   className='nav-links'
                   onClick={closeMobileMenu}
                 >
