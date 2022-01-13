@@ -1,4 +1,6 @@
-import React, { useRef, useContext, useState } from "react";
+import Password from "antd/lib/input/Password";
+import { confirmPasswordReset } from "firebase/auth";
+import React, { useContext, useState } from "react";
 import { Marginer } from "../marginer";
 import { useAuth } from "./authContext";
 import {
@@ -13,11 +15,6 @@ import { AccountContext } from "./context";
 
 export function SignupForm(props) {
   const { switchToSignin } = useContext(AccountContext);
-  const firstNameRef = useRef()
-  const lastNameRef = useRef()
-  const emailRef = useRef()
-  const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
   const { SignupForm } = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -25,14 +22,14 @@ export function SignupForm(props) {
   async function handleSubmitButton(e) {
     e.preventDefault()
 
-    if(passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError('Password do not match')
+    if(Password.current.value !== confirmPassword.current.value) {
+      return setError('Passwords do not match')
     }
 
     try {
       setError('')
       setLoading(true)
-     await SignupForm(firstNameRef.current.value, lastNameRef.current.value, emailRef.current.value, passwordRef.current.value, passwordConfirmRef.current.value)
+     await SignupForm("FullName".current.value, "Email".current.value, "Password".current.value, "passwordConfirm".current.value)
     } catch {
       setError('Failed to create an account')
     }
@@ -42,11 +39,11 @@ export function SignupForm(props) {
   return (
     <BoxContainer>
       <FormContainer onSubmit={handleSubmitButton}>
-        <Input type="firstName" ref={firstNameRef} placeholder="Frst Name" />
-        <Input type="lastName" ref={lastNameRef} placeholder="Last Name" />
-        <Input type="email"  ref={emailRef} placeholder="Email" />
-        <Input type="password" ref={passwordRef} placeholder="Password" />
-        <Input type="passwordConfirm" ref={passwordConfirmRef} placeholder="Confirm Password" />
+        <Input type="firstName" placeholder="Frst Name" />
+        <Input type="lastName" placeholder="Last Name" />
+        <Input type="email"  placeholder="Email" />
+        <Input type="password" placeholder="Password" />
+        <Input type="passwordConfirm" placeholder="passwordConfirm" />
       </FormContainer>
       <Marginer direction="vertical" margin="1em" />
       <SubmitButton disabled={loading}>Signup</SubmitButton>

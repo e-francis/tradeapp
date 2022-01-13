@@ -2,8 +2,6 @@ import React from 'react'
 import './App.css';
 import { HomePage } from './containers/HomePage';
 
-import { authProvider } from './components/accountBox/authContext';
-
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
 import { CustomerAccessPage } from './containers/customerAccessPage';
 import    accountTypes  from "./containers/accountTypes/accountTypes";

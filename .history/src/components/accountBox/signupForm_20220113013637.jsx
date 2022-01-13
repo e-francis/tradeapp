@@ -17,7 +17,7 @@ export function SignupForm(props) {
   const lastNameRef = useRef()
   const emailRef = useRef()
   const passwordRef = useRef()
-  const passwordConfirmRef = useRef()
+  const confirmPasswordRef = useRef()
   const { SignupForm } = useAuth()
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
@@ -25,14 +25,14 @@ export function SignupForm(props) {
   async function handleSubmitButton(e) {
     e.preventDefault()
 
-    if(passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if(passwordRef.current.value !== confirmPasswordRef.current.value) {
       return setError('Password do not match')
     }
 
     try {
       setError('')
       setLoading(true)
-     await SignupForm(firstNameRef.current.value, lastNameRef.current.value, emailRef.current.value, passwordRef.current.value, passwordConfirmRef.current.value)
+     await SignupForm(firstNameRef.current.value, lastNameRef.current.value, emailRef.current.value, passwordRef.current.value, confirmPasswordRef.current.value)
     } catch {
       setError('Failed to create an account')
     }
@@ -46,7 +46,7 @@ export function SignupForm(props) {
         <Input type="lastName" ref={lastNameRef} placeholder="Last Name" />
         <Input type="email"  ref={emailRef} placeholder="Email" />
         <Input type="password" ref={passwordRef} placeholder="Password" />
-        <Input type="passwordConfirm" ref={passwordConfirmRef} placeholder="Confirm Password" />
+        <Input type="confirmPassword" ref={confirmPaswordRef} placeholder="Confirm Password" />
       </FormContainer>
       <Marginer direction="vertical" margin="1em" />
       <SubmitButton disabled={loading}>Signup</SubmitButton>
